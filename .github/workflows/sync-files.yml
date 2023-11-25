@@ -41,7 +41,7 @@ jobs:
         user_email: 'github-actions[bot]@github.com'
         exclude_assets: ''
         keep_files: true
-        commit_message: "Sync config"
+        commit_message: "Sync files"
 
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@v2
