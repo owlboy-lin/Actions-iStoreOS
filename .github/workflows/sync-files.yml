@@ -31,7 +31,7 @@ jobs:
         wget -O ./x86-alpha/feeds.conf https://fw0.koolcenter.com/iStoreOS/alpha/x86_64_efi/feeds.conf
         wget -O ./x86-alpha/.config https://fw0.koolcenter.com/iStoreOS/alpha/x86_64_efi/config.buildinfo
 
-    - name: 同步配置
+    - name: push
       uses: peaceiris/actions-gh-pages@v3
       with:
         personal_token: ${{ secrets.GITHUB_TOKEN }}
@@ -41,11 +41,10 @@ jobs:
         user_email: 'github-actions[bot]@github.com'
         exclude_assets: ''
         keep_files: true
-        commit_message: "Sync files"
+        commit_message: "Sync config"
 
-    - name: 删除运行记录
-      uses: GitRML/delete-workflow-runs@main
+    - name: Delete workflow runs
+      uses: Mattraks/delete-workflow-runs@v2
       with:
-        retain_days: 1
         keep_minimum_runs: 1
         token: ${{ secrets.GITHUB_TOKEN }}
